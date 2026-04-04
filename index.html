@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juicy Paws Games | Crafting Juicy Experiences</title>
+    <!-- Import Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS Variables & Theming --- */
+        :root {
+            --bg-dark: #121212;
+            --neon-pink: #FF00FF;
+            --electric-purple: #8A2BE2;
+            --text-light: #F0F0F0;
+            --text-muted: #A0A0A0;
+            --card-bg: rgba(255, 255, 255, 0.03);
+        }
+
+        /* --- Global Reset & Typography --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--neon-pink);
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--electric-purple);
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--text-light);
+        }
+
+        .logo span {
+            color: var(--neon-pink);
+            text-shadow: 0 0 8px rgba(255, 0, 255, 0.4);
+        }
+
+        nav a {
+            margin-left: 25px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        nav a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 8px rgba(255, 0, 255, 0.5);
+        }
+
+        /* --- Reusable Section Styles --- */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            color: var(--text-light);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 120px 0 140px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            /* Neon Gradient Text */
+            background: linear-gradient(90deg, var(--electric-purple), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* Fallback for non-webkit browsers */
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        /* --- About Section --- */
+        #about {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(138, 43, 226, 0.05) 100%);
+        }
+
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Our Games Section --- */
+        .games-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .game-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            border-radius: 16px;
+            padding: 40px 30px;
+            max-width: 450px;
+            width: 100%;
+            position: relative;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--neon-pink);
+            box-shadow: 0 10px 30px rgba(255, 0, 255, 0.15);
+        }
+
+        .badge {
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            background: linear-gradient(90deg, var(--electric-purple), var(--neon-pink));
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 0, 255, 0.4);
+        }
+
+        .game-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .game-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Contact Section --- */
+        #contact {
+            text-align: center;
+        }
+
+        .contact-email {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            color: var(--text-muted);
+        }
+
+        .contact-email span {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--electric-purple);
+            padding: 16px 36px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
+        }
+
+        .btn:hover {
+            background-color: var(--electric-purple);
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 25px rgba(138, 43, 226, 0.6);
+            color: #fff;
+        }
+
+        /* --- Footer --- */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: underline;
+        }
+
+        .footer-links a:hover {
+            color: var(--neon-pink);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            nav a {
+                margin: 0 10px;
+            }
+            .game-card {
+                padding: 30px 20px;
+            }
+            .badge {
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">Juicy Paws <span>Games</span></div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#games">Games</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Juicy Paws Games</h1>
+                <p>Crafting Juicy Experiences.</p>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Us</h2>
+                <p class="about-content">
+                    We are a creative studio dedicated to forging high-quality, unforgettable interactive experiences. Focusing heavily on the capabilities of Unity 6, we meticulously design, build, and polish games that stand out. At Juicy Paws Games, we are driven by passion, caffeine, and an obsession with creating the most visually striking and mechanically fluid games possible.
+                </p>
+            </div>
+        </section>
+
+        <!-- Our Games Section -->
+        <section id="games">
+            <div class="container">
+                <h2 class="section-title">Our Games</h2>
+                <div class="games-grid">
+                    <div class="game-card">
+                        <div class="badge">Coming Soon</div>
+                        <h3 class="game-title">Illegal Drift Night</h3>
+                        <p class="game-desc">Master the streets in the ultimate neon-fueled drifting experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="contact-email">Reach out to us at <span>contact@juicypawsgames.com</span></p>
+                <a href="mailto:contact@juicypawsgames.com" class="btn">Get in Touch</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms &amp; Conditions</a>
+            </div>
+            <p>&copy; 2026 Juicy Paws Games. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
