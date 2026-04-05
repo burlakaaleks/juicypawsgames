@@ -6,6 +6,7 @@
     <title>Juicy Paws Games | Crafting Juicy Experiences</title>
     <!-- Import Google Font: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
     <style>
         /* --- CSS Variables & Theming --- */
         :root {
@@ -44,9 +45,12 @@
         }
 
         .container {
-            max-width: 1100px;
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
         }
 
         /* --- Header & Navigation --- */
@@ -95,28 +99,54 @@
         }
 
         /* --- Hero Section --- */
-        .hero {
-            text-align: center;
-            padding: 120px 0 140px;
+        .hero-section {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center; /* Центруємо по вертикалі */
+            background: #121212 url('hero_bg_2.webp') no-repeat;
+            background-size: cover;
+            background-position: center right; /* Тримаємо кота в полі зору */
+            overflow: hidden;
         }
 
-        .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
+        /* Затемнення фону, щоб текст "відірвався" від картинки */
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, rgba(18,18,18,0.9) 0%, rgba(18,18,18,0.4) 50%, rgba(18,18,18,0.2) 100%);
+            z-index: 1;
+        }
+
+        /* Контентний блок зі скляним ефектом */
+        .hero-content {
+            max-width: 600px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Головний заголовок */
+        .neon-text {
+            font-size: 5.5rem;
+            line-height: 1;
+            color: #ffffff;
             margin-bottom: 20px;
-            /* Neon Gradient Text */
-            background: linear-gradient(90deg, var(--electric-purple), var(--neon-pink));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            /* Fallback for non-webkit browsers */
-            background-clip: text;
+            font-weight: 900;
+            /* Рожеве неонове світіння */
+            text-shadow: 0 0 10px rgb(127 36 122), 0 0 20px rgba(255, 0, 255, 0.3);
         }
 
-        .hero p {
+        .neon-text span {
+            color: #ff00ff; /* Неоновий рожевий */
+        }
+
+        .hero-subtitle {
             font-size: 1.5rem;
-            color: var(--text-muted);
-            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
             letter-spacing: 1px;
         }
 
@@ -249,10 +279,18 @@
 
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            .hero h1 {
+            .hero-section {
+                background-position: 70% center; /* Трохи зміщуємо картинку на мобілці */
+            }
+            .hero-content {
+                margin: 0 10px;
+                text-align: center;
+                padding: 30px 20px;
+            }
+            .neon-text {
                 font-size: 3rem;
             }
-            .hero p {
+            .hero-subtitle {
                 font-size: 1.2rem;
             }
             .section-title {
@@ -289,10 +327,13 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="hero">
+        <section class="hero-section">
+            <div class="hero-overlay"></div>
             <div class="container">
-                <h1>Juicy Paws Games</h1>
-                <p>Crafting Juicy Experiences.</p>
+                <div class="hero-content">
+                    <h1 class="neon-text">Juicy Paws <span>Games</span></h1>
+                    <p class="hero-subtitle">Crafting Juicy Experiences.</p>
+                </div>
             </div>
         </section>
 
