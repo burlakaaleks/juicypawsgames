@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juicy Paws Games | Crafting Juicy Experiences</title>
-    <!-- Import Google Font: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Import Google Fonts: Fredoka & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <style>
         /* --- CSS Variables & Theming --- */
         :root {
-            --bg-dark: #121212;
-            --neon-pink: #FF00FF;
-            --electric-purple: #8A2BE2;
-            --text-light: #F0F0F0;
-            --text-muted: #A0A0A0;
-            --card-bg: rgba(255, 255, 255, 0.03);
+            --bg-dark: #1a0f2e;
+            --neon-pink: #ff5e8e;
+            --juicy-orange: #ffb703;
+            --electric-purple: #3a2063;
+            --text-light: #f8f8f8;
+            --text-muted: #bdafc4;
+            --card-bg: rgba(255, 255, 255, 0.05);
         }
 
         /* --- Global Reset & Typography --- */
@@ -31,6 +32,10 @@
             color: var(--text-light);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Fredoka', sans-serif;
         }
 
         a {
@@ -66,11 +71,13 @@
             font-weight: 800;
             letter-spacing: -0.5px;
             color: var(--text-light);
+            display: flex;
+            align-items: center;
         }
 
-        .logo span {
-            color: var(--neon-pink);
-            text-shadow: 0 0 8px rgba(255, 0, 255, 0.4);
+        .logo img {
+            height: 65px;
+            width: auto;
         }
 
         nav a {
@@ -104,7 +111,7 @@
             min-height: 85vh;
             display: flex;
             align-items: center; /* Центруємо по вертикалі */
-            background: #121212 url('hero_bg_2.webp') no-repeat;
+            background: var(--bg-dark) url('hero_bg_2.webp') no-repeat;
             background-size: cover;
             background-position: center right; /* Тримаємо кота в полі зору */
             overflow: hidden;
@@ -135,12 +142,15 @@
             color: #ffffff;
             margin-bottom: 20px;
             font-weight: 900;
-            /* Рожеве неонове світіння */
-            text-shadow: 0 0 10px rgb(127 36 122), 0 0 20px rgba(255, 0, 255, 0.3);
+            text-shadow: 0 0 10px rgba(255, 94, 142, 0.6), 0 0 20px rgba(255, 183, 3, 0.3);
         }
 
-        .neon-text span {
-            color: #ff00ff; /* Неоновий рожевий */
+        .neon-text .juicy {
+            color: var(--juicy-orange);
+        }
+
+        .neon-text .paws {
+            color: var(--neon-pink);
         }
 
         .hero-subtitle {
@@ -193,7 +203,7 @@
             position: absolute;
             top: -15px;
             right: 30px;
-            background: linear-gradient(90deg, var(--electric-purple), var(--neon-pink));
+            background: linear-gradient(90deg, var(--juicy-orange), var(--neon-pink));
             color: #fff;
             padding: 6px 16px;
             border-radius: 20px;
@@ -248,9 +258,22 @@
 
         .btn:hover {
             background-color: var(--electric-purple);
-            border-color: var(--neon-pink);
-            box-shadow: 0 0 25px rgba(138, 43, 226, 0.6);
+            border-color: var(--juicy-orange);
+            box-shadow: 0 0 25px rgba(255, 183, 3, 0.4);
             color: #fff;
+        }
+
+        .game-btn {
+            margin-top: 25px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-color: var(--neon-pink);
+        }
+
+        .game-btn:hover {
+            background-color: var(--neon-pink);
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 20px rgba(255, 94, 142, 0.5);
         }
 
         /* --- Footer --- */
@@ -316,7 +339,9 @@
 
     <div class="container">
         <header>
-            <div class="logo">Juicy Paws <span>Games</span></div>
+            <div class="logo">
+                <a href="#"><img src="new_logo_website.png" alt="Juicy Paws Games Logo"></a>
+            </div>
             <nav>
                 <a href="#about">About</a>
                 <a href="#games">Games</a>
@@ -331,7 +356,7 @@
             <div class="hero-overlay"></div>
             <div class="container">
                 <div class="hero-content">
-                    <h1 class="neon-text">Juicy Paws <span>Games</span></h1>
+                    <h1 class="neon-text"><span class="juicy">Juicy</span> <span class="paws">Paws</span> Games</h1>
                     <p class="hero-subtitle">Crafting Juicy Experiences.</p>
                 </div>
             </div>
@@ -353,9 +378,14 @@
                 <h2 class="section-title">Our Games</h2>
                 <div class="games-grid">
                     <div class="game-card">
-                        <div class="badge">Coming Soon</div>
                         <h3 class="game-title">Illegal Drift Night</h3>
-                        <p class="game-desc">Master the streets in the ultimate neon-fueled drifting experience.</p>
+                        <p class="game-desc">Master the streets in the ultimate neon-fueled drifting experience. Customize your ride, hit the apex, and dominate the underground scene!</p>
+                        <a href="https://play.google.com/store/apps/details?id=com.juicypawsgames.illegaldriftnight&utm_source=emea_Med" target="_blank" rel="noopener noreferrer" class="btn game-btn">Get it on Google Play</a>
+                    </div>
+                    <div class="game-card">
+                        <div class="badge">In Development</div>
+                        <h3 class="game-title">Checkers Flow</h3>
+                        <p class="game-desc">A meditative, juicy checkers-based puzzle game. Unwind and exercise your mind with beautifully fluid mechanics and soothing visuals.</p>
                     </div>
                 </div>
             </div>
